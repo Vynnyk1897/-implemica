@@ -13,7 +13,7 @@ public class Task1 {
 	 * 
 	 * Time needed increases in geometric progression
 	 */
-	public void addParen(int leftRem, int rightRem, int count, int currentCounter) {
+	public void addParent(int leftRem, int rightRem, int count, int currentCounter) {
 
 		this.counter = currentCounter;
 
@@ -26,11 +26,11 @@ public class Task1 {
 		} else {
 			// add left bracket, if there are any
 			if (leftRem > 0) {
-				addParen(leftRem - 1, rightRem, count + 1, this.counter);
+				addParent(leftRem - 1, rightRem, count + 1, this.counter);
 			}
 			// add right bracket if it wont cause syntax error
 			if (rightRem > leftRem) {
-				addParen(leftRem, rightRem - 1, count + 1, this.counter);
+				addParent(leftRem, rightRem - 1, count + 1, this.counter);
 			}
 		}
 	}
@@ -51,7 +51,7 @@ public class Task1 {
 	}
 
 	public int bruteForce(int count) {
-		addParen(count, count, 0, 0);
+		addParent(count, count, 0, 0);
 		return this.counter;
 	}
 
