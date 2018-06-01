@@ -13,24 +13,24 @@ public class Task1 {
 	 * 
 	 * Time needed increases in geometric progression
 	 */
-	public void addParent(int leftRem, int rightRem, int count, int currentCounter) {
+	public void addParent(int leftBracket, int rightBracket, int count, int currentCounter) {
 
 		this.counter = currentCounter;
 
-		if (leftRem < 0 || rightRem < leftRem)
+		if (leftBracket < 0 || rightBracket < leftBracket)
 			// syntax error
 			return;
-		if (leftRem == 0 && rightRem == 0) {
+		if (leftBracket == 0 && rightBracket == 0) {
 			// there are no left brakets left
 			this.counter++;
 		} else {
 			// add left bracket, if there are any
-			if (leftRem > 0) {
-				addParent(leftRem - 1, rightRem, count + 1, this.counter);
+			if (leftBracket > 0) {
+				addParent(leftBracket - 1, rightBracket, count + 1, this.counter);
 			}
 			// add right bracket if it wont cause syntax error
-			if (rightRem > leftRem) {
-				addParent(leftRem, rightRem - 1, count + 1, this.counter);
+			if (rightBracket > leftBracket) {
+				addParent(leftBracket, rightBracket - 1, count + 1, this.counter);
 			}
 		}
 	}
